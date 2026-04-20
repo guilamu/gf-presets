@@ -79,16 +79,26 @@ class GF_Sync_Engine {
 				continue;
 			}
 
+			// Fetch per-link excluded keys once (used in both conflict
+			// detection and payload filtering below).
+			$excluded = GF_Preset_Link_Store::get_excluded_keys( $link['id'] );
+
 			// --- Conflict detection ---
 			// For same-form confirmation siblings, skip conflict detection
 			// because their conditionalLogic is expected to differ.
 			if ( ! $is_same_form ) {
 				// Only compare the keys present in the payload, ignoring extra
-				// properties the target field may have.  Normalize key order so
-				// hashes are stable regardless of serialisation order.
+				// properties the target field may have.  Also exclude the
+				// link's excluded keys — those properties were intentionally
+				// not synced, so local differences are expected.
 				$hashable_object = self::strip_identity_keys( $type, $current_object );
 				$comparable      = array_intersect_key( $hashable_object, $payload );
-				$current_hash    = self::compute_payload_hash( $comparable );
+				if ( ! empty( $excluded ) ) {
+					foreach ( $excluded as $ek ) {
+						unset( $comparable[ $ek ] );
+					}
+				}
+				$current_hash = self::compute_payload_hash( $comparable );
 				if ( ! empty( $link['synced_hash'] ) && $current_hash !== $link['synced_hash'] ) {
 					$result['conflicts'][] = array(
 						'link_id' => $link['id'],
@@ -110,7 +120,6 @@ class GF_Sync_Engine {
 			// --- Apply the new payload ---
 			try {
 				// Respect per-link excluded keys.
-				$excluded = GF_Preset_Link_Store::get_excluded_keys( $link['id'] );
 				$filtered_payload = $payload;
 				if ( ! empty( $excluded ) ) {
 					foreach ( $excluded as $key ) {
@@ -145,16 +154,19 @@ class GF_Sync_Engine {
 					GFFormsModel::update_form_meta( $link['form_id'], $updated_form['notifications'], 'notifications' );
 				}
 
-				// Update sync hash. For same-form confirmation siblings,
-				// store the hash without CL so future conflict detection
-				// won't flag the expected CL difference.
-				if ( $is_same_form && 'confirmation' === $type ) {
-					$hash_payload = $payload;
-					unset( $hash_payload['conditionalLogic'] );
-					GF_Preset_Link_Store::update_sync_hash( $link['id'], self::compute_payload_hash( $hash_payload ) );
-				} else {
-					GF_Preset_Link_Store::update_sync_hash( $link['id'], $new_hash );
+				// Store a sync hash that matches what was actually applied:
+				// exclude the link's excluded keys and (for same-form
+				// confirmation siblings) conditionalLogic.
+				$hash_payload = $payload;
+				if ( ! empty( $excluded ) ) {
+					foreach ( $excluded as $ek ) {
+						unset( $hash_payload[ $ek ] );
+					}
 				}
+				if ( $is_same_form && 'confirmation' === $type ) {
+					unset( $hash_payload['conditionalLogic'] );
+				}
+				GF_Preset_Link_Store::update_sync_hash( $link['id'], self::compute_payload_hash( $hash_payload ) );
 				$result['synced']++;
 
 			} catch ( \Exception $e ) {
@@ -284,12 +296,34 @@ class GF_Sync_Engine {
 	}
 
 	/**
-	 * Strip identity keys from an extracted object so it can be hashed
-	 * consistently with a stored preset payload.
+	 * PHP runtime-only properties that GF adds to field objects via
+	 * constructors or post_convert_field() but are never present in
+	 * JS-originated payloads. Must be excluded from hashing so that
+	 * JS-created presets and PHP-extracted payloads produce identical hashes.
+	 */
+	private static $runtime_field_keys = array(
+		'checked_indicator_url',
+		'checked_indicator_markup',
+		'validateState',
+		'is_payment',
+	);
+
+	/**
+	 * Return the list of runtime-only field keys.
+	 *
+	 * @return array
+	 */
+	public static function get_runtime_field_keys() {
+		return self::$runtime_field_keys;
+	}
+
+	/**
+	 * Strip identity keys and runtime-only properties from an extracted
+	 * object so it can be hashed consistently with a stored preset payload.
 	 *
 	 * @param string $type   Preset type.
 	 * @param array  $object Extracted object.
-	 * @return array Object without identity keys.
+	 * @return array Object without identity/runtime keys.
 	 */
 	public static function strip_identity_keys( $type, $object ) {
 		$stripped = $object;
@@ -297,6 +331,9 @@ class GF_Sync_Engine {
 		switch ( $type ) {
 			case 'field':
 				unset( $stripped['id'], $stripped['formId'], $stripped['pageNumber'] );
+				foreach ( self::$runtime_field_keys as $rk ) {
+					unset( $stripped[ $rk ] );
+				}
 				break;
 
 			case 'notification':

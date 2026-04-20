@@ -1005,8 +1005,21 @@ class GF_Presets extends GFAddOn {
 		// Build clean payload (strip identity keys).
 		$current_payload = GF_Sync_Engine::strip_identity_keys( $type, $current_object );
 
+		// Respect the source link's excluded keys: preserve the preset's
+		// existing values for excluded properties.
+		$stored_payload    = json_decode( $preset['payload'], true );
+		$source_excluded   = GF_Preset_Link_Store::get_excluded_keys( $link['id'] );
+		if ( ! empty( $source_excluded ) ) {
+			foreach ( $source_excluded as $ek ) {
+				if ( isset( $stored_payload[ $ek ] ) ) {
+					$current_payload[ $ek ] = $stored_payload[ $ek ];
+				} else {
+					unset( $current_payload[ $ek ] );
+				}
+			}
+		}
+
 		// Compare with stored preset payload.
-		$stored_payload = json_decode( $preset['payload'], true );
 		$new_hash       = GF_Sync_Engine::compute_payload_hash( $current_payload );
 		$stored_hash    = GF_Sync_Engine::compute_payload_hash( $stored_payload );
 
@@ -1023,8 +1036,15 @@ class GF_Presets extends GFAddOn {
 			return new WP_REST_Response( array( 'message' => $ok->get_error_message() ), 500 );
 		}
 
-		// Update the source link's hash.
-		GF_Preset_Link_Store::update_sync_hash( $link['id'], $new_hash );
+		// Update the source link's hash (excluding excluded keys for
+		// consistency with conflict detection).
+		$source_hash_payload = $current_payload;
+		if ( ! empty( $source_excluded ) ) {
+			foreach ( $source_excluded as $ek ) {
+				unset( $source_hash_payload[ $ek ] );
+			}
+		}
+		GF_Preset_Link_Store::update_sync_hash( $link['id'], GF_Sync_Engine::compute_payload_hash( $source_hash_payload ) );
 
 		// Sync to all other linked forms.
 		$sync_result = GF_Sync_Engine::sync_preset( $preset['id'], $current_payload, $this, $form_id );
@@ -1174,6 +1194,20 @@ class GF_Presets extends GFAddOn {
 			// Check if the payload actually changed compared to the stored preset.
 			$stored_payload = json_decode( $preset['payload'], true );
 
+			// Respect the source link's excluded keys: changes to excluded
+			// properties should not propagate to the preset.  Preserve the
+			// preset's existing values for those keys.
+			$source_excluded = GF_Preset_Link_Store::get_excluded_keys( $link['id'] );
+			if ( ! empty( $source_excluded ) ) {
+				foreach ( $source_excluded as $ek ) {
+					if ( isset( $stored_payload[ $ek ] ) ) {
+						$payload[ $ek ] = $stored_payload[ $ek ];
+					} else {
+						unset( $payload[ $ek ] );
+					}
+				}
+			}
+
 			// For confirmations with same-form siblings, exclude conditionalLogic
 			// from comparison so that expected CL differences don't trigger
 			// false updates and flip-flopping between siblings.
@@ -1212,9 +1246,16 @@ class GF_Presets extends GFAddOn {
 
 			$updated_presets[ $link['preset_id'] ] = true;
 
-			// Update the source link's hash so the sync engine won't treat this form as conflicted.
-			$full_hash = GF_Sync_Engine::compute_payload_hash( $payload );
-			GF_Preset_Link_Store::update_sync_hash( $link['id'], $full_hash );
+			// Update the source link's hash so the sync engine won't treat
+			// this form as conflicted.  Exclude the source's excluded keys
+			// so the hash matches what conflict detection will compute.
+			$source_hash_payload = $payload;
+			if ( ! empty( $source_excluded ) ) {
+				foreach ( $source_excluded as $ek ) {
+					unset( $source_hash_payload[ $ek ] );
+				}
+			}
+			GF_Preset_Link_Store::update_sync_hash( $link['id'], GF_Sync_Engine::compute_payload_hash( $source_hash_payload ) );
 
 			// Sync the updated payload to all other linked forms (and same-form siblings).
 			$sync_result = GF_Sync_Engine::sync_preset( $preset['id'], $payload, $this, $form_id );

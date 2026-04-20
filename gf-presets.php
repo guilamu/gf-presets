@@ -3,7 +3,7 @@
  * Plugin Name: GF Presets
  * Plugin URI: https://github.com/guilamu/gf-presets
  * Description: Global preset library for Gravity Forms fields, notifications, and confirmations. Save once, apply anywhere — as a one-time copy or a synced live link.
- * Version: 0.9.0
+ * Version: 0.9.1
  * Author: Guilamu
  * Author URI: https://github.com/guilamu
  * Text Domain: gf-presets
@@ -16,7 +16,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'GF_PRESETS_VERSION', '0.9.0' );
+define( 'GF_PRESETS_VERSION', '0.9.1' );
 define( 'GF_PRESETS_FILE', __FILE__ );
 define( 'GF_PRESETS_DIR', plugin_dir_path( __FILE__ ) );
 define( 'GF_PRESETS_URL', plugin_dir_url( __FILE__ ) );

@@ -2,10 +2,10 @@
 # This file is distributed under the AGPL-3.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: GF Presets 0.9.0\n"
+"Project-Id-Version: GF Presets 0.9.1\n"
 "Report-Msgid-Bugs-To: https://github.com/guilamu/gf-presets/issues\n"
 "POT-Creation-Date: 2026-04-18 00:00+0000\n"
-"PO-Revision-Date: 2026-04-20 15:57+0200\n"
+"PO-Revision-Date: 2026-04-20 19:57+0200\n"
 "Last-Translator: Guilamu <guilamu@users.noreply.github.com>\n"
 "Language-Team: French <fr@li.org>\n"
 "Language: fr_FR\n"

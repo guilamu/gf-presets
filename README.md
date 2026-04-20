@@ -108,6 +108,11 @@ Yes. You can save and apply presets for notifications and confirmations using th
 
 ## Changelog
 
+### 0.9.1
+- Fix: consent field (and similar) false sync conflicts caused by PHP runtime-only properties
+- Fix: per-setting sync exclusions (excluded keys) now respected in all code paths — source form save, REST manual sync, and target conflict detection
+- Fix: synced_hash now computed from filtered payload, preventing perpetual conflict mismatch
+
 ### 0.9.0
 - Initial release
 - Preset library with save, apply, edit, duplicate, delete

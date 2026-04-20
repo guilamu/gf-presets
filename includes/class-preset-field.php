@@ -147,6 +147,12 @@ class GF_Preset_Field {
 		// Remove identity keys that are form-specific.
 		unset( $field['id'], $field['formId'], $field['pageNumber'] );
 
+		// Remove PHP runtime-only properties (set by GF constructors /
+		// post_convert_field) that are absent from JS-created payloads.
+		foreach ( GF_Sync_Engine::get_runtime_field_keys() as $rk ) {
+			unset( $field[ $rk ] );
+		}
+
 		// Enrich CL rules with source labels.
 		if ( ! empty( $field['conditionalLogic'] ) ) {
 			$field['conditionalLogic'] = GF_CL_Remapper::enrich_on_save(

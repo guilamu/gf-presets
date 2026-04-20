@@ -626,6 +626,18 @@
 	flex-shrink: 0;
 }
 
+/* ───────────────────────── Field Preset Tab Status Badge ────────────── */
+
+#gf_presets_tab_toggle {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+#gf_presets_tab_toggle .gfp-preset-status {
+	pointer-events: none;
+}
+
 /* ───────────────────────── Per-Setting Sync Toggle Icons ────────────── */
 
 .gfp-sync-toggle {

@@ -73,6 +73,14 @@ msgid "An error occurred. Please try again."
 msgstr ""
 
 #: class-gf-presets.php
+msgid "Active"
+msgstr ""
+
+#: class-gf-presets.php
+msgid "Inactive"
+msgstr ""
+
+#: class-gf-presets.php
 msgid "Preset saved."
 msgstr ""
 

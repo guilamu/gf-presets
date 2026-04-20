@@ -215,6 +215,26 @@
 		return null;
 	}
 
+	/**
+	 * Update the Field Preset tab toggle button with an Active/Inactive badge.
+	 */
+	function updatePresetTabBadge( isLinked ) {
+		var $toggle = $( '#gf_presets_tab_toggle' );
+		if ( ! $toggle.length ) return;
+
+		// Remove any existing badge.
+		$toggle.find( '.gfp-preset-status' ).remove();
+
+		var activeClass = isLinked ? 'gform-status--active' : 'gform-status--inactive';
+		var label       = isLinked ? ( strings.status_active || 'Active' ) : ( strings.status_inactive || 'Inactive' );
+
+		var badge = '<span class="gfp-preset-status gform-status-indicator gform-status-indicator--size-sm gform-status-indicator--theme-cosmos gform-status--no-hover ' + activeClass + '">' +
+			'<span class="gform-status-indicator-status gform-typography--weight-medium gform-typography--size-text-xs">' + label + '</span>' +
+		'</span>';
+
+		$toggle.append( badge );
+	}
+
 	function checkFieldLiveLink( field, form ) {
 		var $info    = $( '#gf-presets-field-link-info' );
 		var $warning = $( '#gf-presets-field-sync-warning' );
@@ -235,6 +255,7 @@
 		api( { path: 'links/lookup?form_id=' + formId + '&object_id=' + field.id } ).then( function( data, textStatus, jqXHR ) {
 			if ( jqXHR.status === 204 || ! data ) {
 				$info.hide();
+				updatePresetTabBadge( false );
 				return;
 			}
 			$( '#gf-presets-field-link-label' ).text( 'Linked to: ' + ( data.preset_name || 'Preset #' + data.preset_id ) );
@@ -243,6 +264,8 @@
 			_fieldIsLinked = true;
 			_currentLinkId = data.id;
 			_excludedKeys  = data.excluded_keys || [];
+
+			updatePresetTabBadge( true );
 
 			// Inject per-setting sync icons next to each tooltip.
 			injectSyncIcons();
@@ -424,6 +447,7 @@
 			removeSyncIcons();
 			unbindSyncChangeWatcher();
 			$( '#gf-presets-field-sync-warning' ).hide();
+			updatePresetTabBadge( false );
 			showToast( 'success', 'Live link removed.' );
 		} ).fail( function( xhr ) {
 			var msg = ( xhr.responseJSON && xhr.responseJSON.message ) || strings.error_generic;

@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: GF Presets 0.9.0\n"
 "Report-Msgid-Bugs-To: https://github.com/guilamu/gf-presets/issues\n"
 "POT-Creation-Date: 2026-04-18 00:00+0000\n"
-"PO-Revision-Date: 2026-04-20 15:30+0200\n"
+"PO-Revision-Date: 2026-04-20 15:57+0200\n"
 "Last-Translator: Guilamu <guilamu@users.noreply.github.com>\n"
 "Language-Team: French <fr@li.org>\n"
 "Language: fr_FR\n"
@@ -82,6 +82,14 @@ msgstr "Préréglage supprimé."
 #: class-gf-presets.php
 msgid "An error occurred. Please try again."
 msgstr "Une erreur est survenue. Veuillez réessayer."
+
+#: class-gf-presets.php
+msgid "Active"
+msgstr "Actif"
+
+#: class-gf-presets.php
+msgid "Inactive"
+msgstr "Inactif"
 
 #: class-gf-presets.php
 msgid "Preset saved."

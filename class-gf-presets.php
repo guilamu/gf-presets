@@ -335,6 +335,8 @@ class GF_Presets extends GFAddOn {
 					'sync_warning'      => __( 'This field is live-linked. Saving this form will push your changes to all other forms using this preset.', 'gf-presets' ),
 					'unsaved_field_warning' => __( 'This field has not been saved yet. Please save the form first, then apply the preset.', 'gf-presets' ),
 					'error_generic'     => __( 'An error occurred. Please try again.', 'gf-presets' ),
+					'status_active'     => __( 'Active', 'gf-presets' ),
+					'status_inactive'   => __( 'Inactive', 'gf-presets' ),
 				),
 			),
 			array(

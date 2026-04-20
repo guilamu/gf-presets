@@ -1,0 +1,391 @@
+# Copyright (C) 2026 Guilamu
+# This file is distributed under the AGPL-3.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: GF Presets 0.9.0\n"
+"Report-Msgid-Bugs-To: https://github.com/guilamu/gf-presets/issues\n"
+"POT-Creation-Date: 2026-04-18 00:00+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: hand-coded\n"
+"X-Domain: gf-presets\n"
+
+#. Plugin Name of the plugin
+msgid "GF Presets"
+msgstr ""
+
+#. Description of the plugin
+msgid "Global preset library for Gravity Forms fields, notifications, and confirmations. Save once, apply anywhere — as a one-time copy or a synced live link."
+msgstr ""
+
+#: gf-presets.php
+msgid "More information about GF Presets"
+msgstr ""
+
+#: gf-presets.php
+msgid "View details"
+msgstr ""
+
+#: gf-presets.php
+msgid "🐛 Report a Bug"
+msgstr ""
+
+#: gf-presets.php
+msgid "🐛 Report a Bug (install Bug Reporter)"
+msgstr ""
+
+#: class-gf-presets.php
+msgid "Field Preset"
+msgstr ""
+
+#: class-gf-presets.php
+msgid "Preset Library"
+msgstr ""
+
+#: class-gf-presets.php
+msgid "This preset is linked to %d forms. Deleting it will break all links and leave those forms with their current settings (unaffected, but no longer synced). Continue?"
+msgstr ""
+
+#: class-gf-presets.php
+msgid "This object will keep its current settings but won't receive future updates. Continue?"
+msgstr ""
+
+#: class-gf-presets.php
+msgid "Preset saved. Synced to %d forms."
+msgstr ""
+
+#: class-gf-presets.php
+msgid "Preset saved. Synced to %d forms. %d conflicts. %d errors."
+msgstr ""
+
+#: class-gf-presets.php
+msgid "Preset deleted."
+msgstr ""
+
+#: class-gf-presets.php
+msgid "An error occurred. Please try again."
+msgstr ""
+
+#: class-gf-presets.php
+msgid "Preset saved."
+msgstr ""
+
+#: class-gf-presets.php
+msgid "Preset applied."
+msgstr ""
+
+#: class-gf-presets.php
+msgid "CL remapped: %s. Dropped: %s."
+msgstr ""
+
+#: class-gf-presets.php
+msgid "Conditional logic will be remapped by matching field labels. Rules referencing fields not found in this form will be dropped."
+msgstr ""
+
+#: class-gf-presets.php
+msgid "This field will keep its current settings but won't receive future updates from the preset. Continue?"
+msgstr ""
+
+#: class-gf-presets.php
+msgid "Live link removed."
+msgstr ""
+
+#: class-gf-presets.php
+msgid "This field is live-linked. Saving this form will push your changes to all other forms using this preset."
+msgstr ""
+
+#: class-gf-presets.php
+msgid "This field has not been saved yet. Please save the form first, then apply the preset."
+msgstr ""
+
+#: class-gf-presets.php
+msgid "The form has no saved fields. Please save the form first, then apply the preset."
+msgstr ""
+
+#: class-gf-presets.php
+msgid "Linked to preset: \"%s\""
+msgstr ""
+
+#: class-gf-presets.php
+msgid "This preset contains field-specific merge tags that may not exist in this form: %s"
+msgstr ""
+
+#. translators: %1$s: preset field type, %2$s: target field type
+#: class-gf-presets.php
+msgid "Type mismatch: this preset is for \"%1$s\" fields but the target field is \"%2$s\"."
+msgstr ""
+
+#: admin/class-preset-admin.php
+msgid "All"
+msgstr ""
+
+#: admin/class-preset-admin.php
+msgid "Fields"
+msgstr ""
+
+#: admin/class-preset-admin.php
+msgid "Notifications"
+msgstr ""
+
+#: admin/class-preset-admin.php
+msgid "Confirmations"
+msgstr ""
+
+#: admin/class-preset-admin.php
+msgid "New Preset"
+msgstr ""
+
+#: admin/class-preset-admin.php
+msgid "Search presets…"
+msgstr ""
+
+#: admin/class-preset-admin.php
+msgid "Loading presets…"
+msgstr ""
+
+#: admin/class-preset-admin.php
+msgid "No presets yet"
+msgstr ""
+
+#: admin/class-preset-admin.php
+msgid "Save a field, notification, or confirmation as a preset to start building your library."
+msgstr ""
+
+#: admin/views/modal-apply.php
+msgid "Apply Preset:"
+msgstr ""
+
+#: admin/views/modal-apply.php
+msgid "Close"
+msgstr ""
+
+#: admin/views/modal-apply.php
+msgid "How do you want to apply this preset?"
+msgstr ""
+
+#: admin/views/modal-apply.php
+msgid "Copy"
+msgstr ""
+
+#: admin/views/modal-apply.php
+msgid "Independent copy. No future sync."
+msgstr ""
+
+#: admin/views/modal-apply.php
+msgid "Live Link"
+msgstr ""
+
+#: admin/views/modal-apply.php
+msgid "Stays synced with the preset."
+msgstr ""
+
+#: admin/views/modal-apply.php
+msgid "Changes to the preset will overwrite this object in all linked forms automatically."
+msgstr ""
+
+#: admin/views/modal-apply.php
+msgid "Merge Tag Warning"
+msgstr ""
+
+#: admin/views/modal-apply.php
+msgid "This preset contains field-specific merge tags:"
+msgstr ""
+
+#: admin/views/modal-apply.php
+msgid "These field IDs may not exist in this form. Review and update them after applying."
+msgstr ""
+
+#: admin/views/modal-apply.php
+msgid "Conditional logic will be remapped by matching field labels. Rules referencing fields not found in this form will be dropped."
+msgstr ""
+
+#: admin/views/modal-apply.php
+msgid "Cancel"
+msgstr ""
+
+#: admin/views/modal-apply.php
+msgid "Apply Preset"
+msgstr ""
+
+#: admin/views/modal-save.php
+msgid "Save as Preset"
+msgstr ""
+
+#: admin/views/modal-save.php
+msgid "Name"
+msgstr ""
+
+#: admin/views/modal-save.php
+msgid "Description (optional)"
+msgstr ""
+
+#: admin/views/modal-save.php
+msgid "Conditional logic rules will be saved with label mapping for portability across forms."
+msgstr ""
+
+#: admin/views/modal-save.php
+msgid "Save Preset"
+msgstr ""
+
+#: class-gf-presets.php
+msgid "Invalid preset_type."
+msgstr ""
+
+#: class-gf-presets.php
+msgid "Name is required (max 255 chars)."
+msgstr ""
+
+#: class-gf-presets.php
+msgid "Payload must be valid JSON."
+msgstr ""
+
+#: class-gf-presets.php
+msgid "Preset not found."
+msgstr ""
+
+#: class-gf-presets.php
+msgid "Mode must be \"copy\" or \"link\"."
+msgstr ""
+
+#: class-gf-presets.php
+msgid "Form not found."
+msgstr ""
+
+#: class-gf-presets.php
+msgid "object_id is required."
+msgstr ""
+
+#: class-gf-presets.php
+msgid "A link already exists for this object."
+msgstr ""
+
+#: class-gf-presets.php
+msgid "Failed to update form."
+msgstr ""
+
+#: class-gf-presets.php
+msgid "(deleted)"
+msgstr ""
+
+#: class-gf-presets.php
+msgid "Link not found."
+msgstr ""
+
+#: class-gf-presets.php
+msgid "Link broken."
+msgstr ""
+
+#. translators: %s: object type (Field, Notification, or Confirmation)
+#: class-gf-presets.php
+msgid "%s not found in the form."
+msgstr ""
+
+#: class-gf-presets.php
+msgid "Unknown type."
+msgstr ""
+
+#: class-gf-presets.php
+msgid "form_id and object_id required."
+msgstr ""
+
+#: class-gf-presets.php
+msgid "No link found."
+msgstr ""
+
+#: class-gf-presets.php
+msgid "Object not found in form."
+msgstr ""
+
+#: class-gf-presets.php
+msgid "No changes detected."
+msgstr ""
+
+#: class-gf-presets.php
+msgid "Field preset payload must contain \"type\" and \"label\"."
+msgstr ""
+
+#: class-gf-presets.php
+msgid "Notification preset payload must contain \"to\", \"subject\", and \"message\"."
+msgstr ""
+
+#: class-gf-presets.php
+msgid "Confirmation preset payload must contain \"type\" (message, redirect, or page)."
+msgstr ""
+
+#: class-gf-presets.php
+msgid "Unknown preset type."
+msgstr ""
+
+#. translators: %s: field ID
+#: includes/class-preset-field.php
+msgid "Field %s not found in the form. If you just added this field, please save the form first and then apply the preset."
+msgstr ""
+
+#: includes/class-preset-notification.php
+msgid "No notifications in this form."
+msgstr ""
+
+#. translators: %s: notification ID
+#: includes/class-preset-notification.php
+msgid "Notification %s not found in the form."
+msgstr ""
+
+#: includes/class-preset-confirmation.php
+msgid "No confirmations in this form."
+msgstr ""
+
+#. translators: %s: confirmation ID
+#: includes/class-preset-confirmation.php
+msgid "Confirmation %s not found in the form."
+msgstr ""
+
+#: includes/class-preset-store.php
+msgid "Failed to create preset: "
+msgstr ""
+
+#: includes/class-preset-store.php
+msgid "Failed to update preset: "
+msgstr ""
+
+#: includes/class-preset-link-store.php
+msgid "Failed to create link: "
+msgstr ""
+
+#. translators: %d: form ID
+#: includes/class-sync-engine.php
+msgid "Form #%d: object was edited locally since last sync."
+msgstr ""
+
+#: includes/class-sync-engine.php
+msgid "Form has been deleted."
+msgstr ""
+
+#: includes/class-preset-field.php
+msgid "CL remapped: \"%1$s\" → field #%2$s."
+msgstr ""
+
+#: includes/class-preset-field.php
+msgid "CL dropped: \"%s\" (no match in this form)."
+msgstr ""
+
+#: includes/class-preset-notification.php
+msgid "This notification contains field-specific merge tags: %s — Review and update them after applying."
+msgstr ""
+
+#: includes/class-preset-confirmation.php
+msgid "This confirmation contains field-specific merge tags: %s — Review and update them after applying."
+msgstr ""
+
+#: includes/class-preset-store.php
+msgid "%s (Copy)"
+msgstr ""
+
+#: includes/class-github-updater.php
+msgid "Unable to rename the update folder. Please retry or update manually."
+msgstr ""

@@ -335,9 +335,9 @@ License by making exceptions from one or more of its conditions.
 Additional permissions that are applicable to the entire Program shall
 be treated as though they were included in this License, to the extent
 that they are valid under applicable law.  If additional permissions
-apply only to part of the Program, that part may be used separately
-under those permissions, but the entire Program remains governed by
-this License without regard to the additional permissions.
+apply to part of the Program, that part may be used separately under
+those permissions, but the entire Program remains governed by this
+License without regard to the additional permissions.
 
   When you convey a copy of a covered work, you may at your option
 remove any additional permissions from that copy, or from any part of
@@ -545,10 +545,10 @@ interacting with it remotely through a computer network (if your version
 supports such interaction) an opportunity to receive the Corresponding
 Source of your version by providing access to the Corresponding Source
 from a network server at no charge, through some standard or customary
-means of facilitating copying of software.  This Corresponding Source
-shall include the Corresponding Source for any work covered by version 3
-of the GNU General Public License that is incorporated pursuant to the
-following paragraph.
+means of facilitating copying of software.  This requirement applies
+whether the interaction takes the form of exchanging data with the
+software itself (using command-line arguments, HTTP requests, etc.) or
+using the software's graphical user interface.
 
   Notwithstanding any other provision of this License, you have
 permission to link or combine any covered work with a work licensed
@@ -647,7 +647,7 @@ the "copyright" line and a pointer to where the full notice is found.
 
 Also add information on how to contact you by electronic and paper mail.
 
-  If your software can interact with users remotely through a computer
+  If your program does interaction with users remotely through a computer
 network, you should also make sure that it provides a way for users to
 get its source.  For example, if your program is a web application, its
 interface could display a "Source" link that leads users to an archive

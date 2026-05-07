@@ -631,7 +631,6 @@
 #gf_presets_tab_toggle {
 	display: flex;
 	align-items: center;
-	gap: 0.5rem;
 }
 
 #gf_presets_tab_toggle .gfp-preset-status {

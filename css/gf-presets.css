@@ -634,7 +634,13 @@
 }
 
 #gf_presets_tab_toggle .gfp-preset-status {
+	margin-left: 0.625rem;
 	pointer-events: none;
+}
+
+/* Keep GF's conditional-logic status pill offset from the label text. */
+.conditional_logic_wrapper .conditional_logic_accordion__status_indicator {
+	margin-left: 0.625rem;
 }
 
 /* ───────────────────────── Per-Setting Sync Toggle Icons ────────────── */

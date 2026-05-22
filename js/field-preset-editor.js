@@ -90,7 +90,7 @@
 		var html =
 			'<div class="gf-presets-field-controls">' +
 				'<button type="button" class="button gf-presets-field-save-btn" id="gf-presets-field-save">' +
-					'<span class="dashicons dashicons-download" style="vertical-align:middle;margin-right:3px;"></span> Save as Preset' +
+					'<span class="dashicons dashicons-download"></span>Save as Preset' +
 				'</button>' +
 				'<div class="gf-presets-field-load-wrap">' +
 					'<select id="gf-presets-field-load-select" class="gf-presets-field-select">' +
@@ -99,14 +99,14 @@
 				'</div>' +
 			'</div>' +
 			'<div id="gf-presets-field-link-info" class="gf-presets-field-link-info" style="display:none;">' +
-				'<span class="dashicons dashicons-admin-links" style="vertical-align:middle;margin-right:4px;color:#2271b1;"></span>' +
+				'<span class="dashicons dashicons-admin-links"></span>' +
 				'<span id="gf-presets-field-link-label" class="gf-presets-link-label"></span>' +
 				'<button type="button" class="button-link gf-presets-break-link-btn" id="gf-presets-field-break-link" title="Break live link">' +
-					'<span class="dashicons dashicons-editor-unlink" style="vertical-align:middle;font-size:16px;width:16px;height:16px;"></span> Unlink' +
+					'<span class="dashicons dashicons-editor-unlink"></span>Unlink' +
 				'</button>' +
 			'</div>' +
 			'<div id="gf-presets-field-sync-warning" class="gf-presets-field-sync-warning" style="display:none;">' +
-				'<span class="dashicons dashicons-warning" style="vertical-align:middle;margin-right:4px;"></span>' +
+				'<span class="dashicons dashicons-warning"></span>' +
 				'<span>' + ( strings.sync_warning || 'This field is live-linked. Saving this form will push your changes to all other forms using this preset.' ) + '</span>' +
 			'</div>';
 

@@ -108,6 +108,10 @@ Yes. You can save and apply presets for notifications and confirmations using th
 
 ## Changelog
 
+### 0.9.3
+- Fix: restore dashicon alignment in preset action buttons after the WordPress 7 admin CSS update
+- Tweak: increase icon-to-label spacing for preset action buttons and centralize that styling in CSS
+
 ### 0.9.2
 - Tweak: remove extra spacing from the field preset tab toggle layout
 

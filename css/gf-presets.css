@@ -509,10 +509,39 @@
 	color: #826200;
 }
 
+.gf-presets-unsaved-notice .dashicons {
+	font-size: 16px;
+	width: 16px;
+	height: 16px;
+	line-height: 1;
+	margin-right: 2px;
+	vertical-align: text-bottom;
+}
+
 .gf-presets-link-badge {
 	font-size: 13px;
 	font-weight: 600;
 	color: var(--gfp-primary);
+}
+
+.gf-presets-toolbar .button,
+.gf-presets-field-controls .button,
+.gf-presets-field-link-info .button-link,
+.gf-presets-notif-toolbar .button {
+	display: inline-flex;
+	align-items: center;
+}
+
+.gf-presets-toolbar .button .dashicons,
+.gf-presets-field-controls .button .dashicons,
+.gf-presets-field-link-info .button-link .dashicons,
+.gf-presets-notif-toolbar .button .dashicons {
+	font-size: 16px;
+	width: 16px;
+	height: 16px;
+	line-height: 1;
+	flex: 0 0 auto;
+	margin-right: 8px;
 }
 
 .gf-presets-load-wrap {
@@ -589,6 +618,11 @@
 	color: var(--gfp-text, #1d2327);
 }
 
+.gf-presets-field-link-info > .dashicons {
+	color: var(--gfp-primary);
+	flex: 0 0 auto;
+}
+
 .gf-presets-link-label {
 	flex: 1;
 	font-weight: 500;
@@ -624,6 +658,7 @@
 .gf-presets-field-sync-warning .dashicons {
 	color: #dba617;
 	flex-shrink: 0;
+	line-height: 1;
 }
 
 /* ───────────────────────── Field Preset Tab Status Badge ────────────── */

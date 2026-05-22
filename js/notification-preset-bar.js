@@ -155,17 +155,17 @@
 			$toolbar.html(
 				( unsaved
 					? '<span class="gf-presets-unsaved-notice">'
-						+ '<span class="dashicons dashicons-warning" style="vertical-align:middle;margin-right:2px;"></span> '
+						+ '<span class="dashicons dashicons-warning"></span>'
 						+ esc( strings.unsaved_warning || 'Save this ' + type + ' first to load presets.' )
 						+ '</span> '
 					: ''
 				) +
 				'<button type="button" class="button gf-presets-save-btn" id="gf-presets-save-notif">' +
-					'<span class="dashicons dashicons-download" style="vertical-align:middle;margin-right:3px;"></span> Save as Preset' +
+					'<span class="dashicons dashicons-download"></span>Save as Preset' +
 				'</button> ' +
 				'<div class="gf-presets-load-wrap">' +
 					'<button type="button" class="button gf-presets-load-btn" id="gf-presets-load-notif"' + loadDisabled + '>' +
-						'<span class="dashicons dashicons-portfolio" style="vertical-align:middle;margin-right:3px;"></span> Load Preset ▾' +
+						'<span class="dashicons dashicons-portfolio"></span>Load Preset ▾' +
 					'</button>' +
 					'<div class="gf-presets-load-dropdown" id="gf-presets-load-dropdown" style="display:none;"></div>' +
 				'</div>'

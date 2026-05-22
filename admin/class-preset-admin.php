@@ -36,8 +36,7 @@ class GF_Presets_Admin {
 			<!-- Toolbar -->
 			<div class="gf-presets-toolbar">
 				<button type="button" class="button button-primary" id="gf-presets-new-btn">
-					<span class="dashicons dashicons-plus-alt2" style="vertical-align: middle; margin-right: 4px;"></span>
-					<?php esc_html_e( 'New Preset', 'gf-presets' ); ?>
+					<span class="dashicons dashicons-plus-alt2"></span><?php esc_html_e( 'New Preset', 'gf-presets' ); ?>
 				</button>
 				<div class="gf-presets-search-wrap">
 					<input type="search"
